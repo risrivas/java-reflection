@@ -1,0 +1,36 @@
+- Reflection API was introduced in Java 1
+- Method handles was introduced in Java 7
+- read and modfy the content of an object at runtime without knowing its class or structure
+- how to discover the content of an object at runtime
+- Method handles were included to enhance the performance
+
+- Several classes: Class, Field, Method, Constructor, Annotation
+
+########
+# Class
+########
+- cannot "create" a class instance
+
+- get reference by:
+1) can query an object for its class
+
+- example
+String hello = "Hello";
+Class helloClass = hello.getClass();
+
+- only one instance of Class for a given class
+- getClass() method is available in Object class
+Class<?> getClass();
+
+Class<?> helloClass = hello.getClass(); // OK
+Class<String> helloClass = hello.getClass(); // Compiler Error
+Class<Object> helloClass = hello.getClass(); // Compiler Error
+
+make it work:
+Class<? extends String> helloClass = hello.getClass(); // OK
+Class<? extends Object> helloClass = hello.getClass(); // OK
+
+2) get a class by its name, known at compile time or runtime
+
+
+
