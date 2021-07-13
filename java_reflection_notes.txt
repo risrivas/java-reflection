@@ -1,6 +1,7 @@
+
 - Reflection API was introduced in Java 1
 - Method handles was introduced in Java 7
-- read and modfy the content of an object at runtime without knowing its class or structure
+- read and modify the content of an object at runtime without knowing its class or structure
 - how to discover the content of an object at runtime
 - Method handles were included to enhance the performance
 
@@ -11,8 +12,14 @@
 ########
 - cannot "create" a class instance
 
-- get reference by:
-1) can query an object for its class
+- can only get reference by:
+
+3 ways:
+Class<?> helloClass = "Hello".getClass();
+Class<?> stringClass = String.class; // class name known at compile time
+Class<?> stringClass = Class.forName("java.lang.String"); // class name known as String and created at runtime
+
+1) can query an object for its class using object.getClass()
 
 - example
 String hello = "Hello";
@@ -30,7 +37,44 @@ make it work:
 Class<? extends String> helloClass = hello.getClass(); // OK
 Class<? extends Object> helloClass = hello.getClass(); // OK
 
-2) get a class by its name, known at compile time or runtime
+2) get a class by its name, known at compile time using .class
+Class<?> stringClass = String.class; // known at compile time
+
+3) if not known at compile time, but just know the class name as String (from a file or config)
+Class<?> stringClass = Class.forName("java.lang.String"); // runtime
+
+--------------------------------
+
+### Getting information from class reference
+
+# get the immediate super class
+Class<?> helloClass = "Hello".getClass();
+Class<?> superClass = helloClass.getSuperClass();
+
+- super class of Object is null
+
+# get the implemented interfaces
+Class<?>[] interfaces = helloClass.getInterfaces();
+
+if no interface implemented, return empty array
+
+# get fields
+Class<?> clss = Person.class;
+
+3 methods:
+- if we know the field name
+Field field = clss.getField("age");
+
+- if we don't know
+Field[] declaredFields = clss.getDeclaredFields(); // declared in the class
+Field[] fields = clss.getFields(); // only public fields including inherited
+
+
+
+
+
+
+
 
 
 
