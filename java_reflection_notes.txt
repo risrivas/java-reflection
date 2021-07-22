@@ -70,6 +70,20 @@ Field[] declaredFields = clss.getDeclaredFields(); // declared in the class
 Field[] fields = clss.getFields(); // only public fields including inherited
 
 
+# get methods
+Class<?> clss = Person.class;
+Method method = clss.getMethod("setName", String.class);
+
+- if we don't know method name
+getDeclaredMethods()
+getMethods() // only public methods, including inherited
+
+
+# get constructors
+- clss.getConstructor(String.class);
+- getDeclaredConstructors()
+- getConstructors()
+
 
 
 
