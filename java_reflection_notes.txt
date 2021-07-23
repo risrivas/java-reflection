@@ -85,9 +85,16 @@ getMethods() // only public methods, including inherited
 - getConstructors()
 
 
+# get Modifiers - static / final or abstract
+- getModifiers() on Field, Method, Constructor - return int
+- example
+Field field = clss.getField("name");
+int mod = field.getModifiers();
+boolean isPublic = mod & 0x00000001;
+boolean isPrivate = mod & 0x00000010;
 
-
-
+# correct way
+boolean isPublic = Modifier.isPublic(mod);
 
 
 
