@@ -97,5 +97,38 @@ boolean isPrivate = mod & 0x00000010;
 boolean isPublic = Modifier.isPublic(mod);
 
 
+####################
+# Using annotations
+####################
+- Mapping Objects to Files and Databases
+Pojo => Database table : Hibernate, EclipseLink
+Pojo => XML : JAX-B
+Pojo => JSON : JSON-B
 
+- what to save from Pojo and how to save it
+- for this, add metadata in form of annotations
+- example:
+public class Person {
+    @PrimaryKey
+    private long id;
+
+    @Column
+    private int age;
+
+    @Column
+    private String name;
+}
+
+public @interface PrimaryKey {}
+public @interface Column {}
+
+# Setting the value of a field
+Person p = ...;
+Class<?> clss = p.getClass();
+Field field = clss.getDeclaredField("name");
+
+field.setAccessible(true); // if the field is private
+field.setValue(p, "Sarah");
+// same for read
+String name = (String) field.getValue(p);
 
