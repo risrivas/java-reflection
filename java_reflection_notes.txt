@@ -132,3 +132,22 @@ field.setValue(p, "Sarah");
 // same for read
 String name = (String) field.getValue(p);
 
+----------
+
+- Read/Write instances of T without knowing what is T at compile time
+
+public interface EntityManager<T> {
+    void persist(T t);
+    T read(Class<?> clzz, long primaryKey);
+}
+
+
+-----
+
+- annotations are available in 3 stages
+Compile Time
+Class loading time
+Runtime
+
+- use this above @interface annotation class
+@Retention(RetentionPolicy.RUNTIME)
