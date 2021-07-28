@@ -14,8 +14,18 @@ public class PlayWithMetamodel {
 
     public static void main(String[] args) {
         Metamodel metamodel = Metamodel.of(Person.class);
+
         PrimaryKeyField primaryKeyField = metamodel.getPrimaryKey();
+        System.out.println("Primary key name = " + primaryKeyField.getName() + ", type = "
+                + primaryKeyField.getType().getSimpleName());
+
         List<ColumnField> columnFields = metamodel.getColumns();
+
+        for (ColumnField columnField :
+                columnFields) {
+            System.out.println("Column name = " + columnField.getName() + ", type = "
+                    + columnField.getType().getSimpleName());
+        }
 
     }
 
