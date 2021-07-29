@@ -151,3 +151,12 @@ Runtime
 
 - use this above @interface annotation class
 @Retention(RetentionPolicy.RUNTIME)
+
+- best database to use for testing / demo or lightweight persistence needs
+sqlite3
+H2 = https://www.h2database.com/html/main.html
+
+- for H2 db, just download the jar directly => no installation needed
+https://mvnrepository.com/artifact/com.h2database/h2/1.4.200
+
+
