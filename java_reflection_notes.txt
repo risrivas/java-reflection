@@ -159,4 +159,15 @@ H2 = https://www.h2database.com/html/main.html
 - for H2 db, just download the jar directly => no installation needed
 https://mvnrepository.com/artifact/com.h2database/h2/1.4.200
 
+- create a H2 database from terminal first
+ java -cp .\lib\h2-1.4.200.jar org.h2.tools.Shell
+ jdbc:h2:C:\Users\rishi\Downloads\Study\Udemy\java-reflection\ReflectionDemo\src\main\resources\db-files\db-pluralsight
+
+- create table query
+create table Person(
+id int primary key,
+age int,
+name varchar(40)
+)
+
 
